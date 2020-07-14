@@ -59,39 +59,67 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown1">
           <ul class="sidebar-nav">
             <li>
-              <a href="/" title="Dashboard">
+              <router-link to="/">
                 <i class="fas fa-chart-bar"> </i>
+              </router-link>
+              <!--
+              <a href="/" title="Dashboard">
               </a>
+              -->
             </li>
             <li>
-              <a href="/integrations" title="Integrations">
+              <router-link to="/integrations">
                 <i class="fas fa-cog"> </i>
+              </router-link>
+              <!--
+              <a href="/integrations" title="Integrations">
               </a>
+              -->
             </li>
             <li>
-              <a href="/forms" title="Forms">
+              <router-link to="/forms">
                 <i class="fas fa-envelope-open-text"> </i>
+              </router-link>
+              <!--
+              <a href="/forms" title="Forms">
               </a>
+              -->
             </li>
             <li>
-              <a href="/settings" title="Settings">
+              <router-link to="/settings">
                 <i class="fas fa-list"> </i>
+              </router-link>
+              <!--
+              <a href="/settings" title="Settings">
               </a>
+              -->
             </li>
             <li>
-              <a href="/support" title="Help & Support">
+              <router-link to="/support">
                 <i class="fas fa-life-ring"> </i>
+              </router-link>
+              <!--
+              <a href="/support" title="Help & Support">
               </a>
+              -->
             </li>
             <li>
-              <a href="/my-account" title="My Account">
+              <router-link to="/my-account">
                 <i class="fas fa-user-circle"> </i>
+              </router-link>
+              <!--
+              <a href="/my-account" title="My Account">
               </a>
+              -->
             </li>
             <li>
-              <a href="/login" title="Logout">
+              <router-link to="/login">
                 <i class="fas fa-sign-out-alt"> </i>
+              </router-link>
+              <!--
+              <a href="/login" title="Logout">
               </a>
+              -->
             </li>
           </ul>
         </div>
