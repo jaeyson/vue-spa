@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="inner-wrapper">
       <Sidebar />
-      <Dashboard />
+      <Integrations />
     </div>
   </div>
 </template>
@@ -11,13 +11,12 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld";
 import Sidebar from "@/components/Sidebar";
-import Dashboard from "@/components/dashboard/";
+import Integrations from "@/components/integrations/";
 
 export default {
   components: {
-    // HelloWorld,
     Sidebar,
-    Dashboard
+    Integrations
   }
 };
 </script>
