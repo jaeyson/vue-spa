@@ -13,32 +13,37 @@
                 />
               </div>
               <div class="auth-form">
-                <form>
+                <v-form v-model="valid" ref="form">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input
+                    <v-text-field
+                      v-model="email"
+                      :rules="[rules.email, rules.required('email')]"
+                      label="Email"
                       type="email"
-                      class="form-control"
-                      placeholder="Enter email"
-                      value=""
-                    />
+                      required
+                      placeholder="bad.luck@bri.an"
+                    ></v-text-field>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input
+                    <v-text-field
+                      v-model="password"
+                      :rules="[rules.password, rules.required('password')]"
+                      label="Password"
                       type="password"
-                      class="form-control"
-                      id="exampleInputPassword1"
-                      placeholder="Password"
-                      value=""
-                    />
+                      required
+                      placeholder="**************"
+                    ></v-text-field>
                   </div>
                   <div class="form-group" style="min-height: 50px;">
-                    <button class="btn btn-primary float-right">
+                    <v-btn
+                      :disabled="!valid"
+                      @click="signIn"
+                      class="btn btn-primary float-right"
+                    >
                       LOG IN
-                    </button>
+                    </v-btn>
                   </div>
-                </form>
+                </v-form>
               </div>
               <div class="auth-footer mt-30">
                 <div class="">
@@ -54,7 +59,37 @@
 </template>
 
 <script>
+
 export default {
-  components: {}
+  data: function() {
+    return {
+      response: "No data yet...",
+      authStatus: "no auth status",
+      valid: false,
+      result: "",
+      name: "",
+      email: "",
+      password: "",
+      rules: {
+        required: function(inputType) {
+          return v => !!v || `${inputType} is required`;
+        },
+        name: v => v.length <= 10 || "Name must be less than 10 chars",
+        email: v => /.+@.+/.test(v) || "E-mail must be valid",
+        password: v => v.length <= 10 || "Password must be less than 10 chars"
+      }
+    }
+  },
+  methods: {
+    signIn() {
+      if (this.$refs.form.validate()) {
+        this.$store.dispatch('userLogin', {
+          email: this.email,
+          password: this.password
+        });
+        // this.$refs.form.reset();
+      }
+    }
+  }
 };
 </script>
