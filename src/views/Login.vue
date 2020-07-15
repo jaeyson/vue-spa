@@ -4,6 +4,14 @@
       <section class="auth-page mb-0">
         <div class="container-fluid">
           <div class="content-wrapper mt-100">
+            <v-alert
+              outlined
+              type="warning"
+              border="left"
+              v-if="!!message"
+            >
+              {{ message }}
+            </v-alert>
             <div class="content box col-md-6 offset-md-3">
               <div class="auth-header">
                 <img
@@ -59,7 +67,6 @@
 </template>
 
 <script>
-
 export default {
   data: function() {
     return {
@@ -68,6 +75,7 @@ export default {
       valid: false,
       result: "",
       name: "",
+      message: this.$store.state.message,
       email: "",
       password: "",
       rules: {
@@ -78,12 +86,12 @@ export default {
         email: v => /.+@.+/.test(v) || "E-mail must be valid",
         password: v => v.length <= 10 || "Password must be less than 10 chars"
       }
-    }
+    };
   },
   methods: {
     signIn() {
       if (this.$refs.form.validate()) {
-        this.$store.dispatch('userLogin', {
+        this.$store.dispatch("userLogin", {
           email: this.email,
           password: this.password
         });

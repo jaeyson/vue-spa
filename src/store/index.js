@@ -22,6 +22,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     isAuthenticated: false,
+    message: ""
   },
   mutations: {
     setUser(state, payload) {
@@ -32,30 +33,32 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    userLogin({commit}, {email, password}) {
-      auth.signInWithEmailAndPassword(email, password)
+    userLogin({ commit }, { email, password }) {
+      auth
+        .signInWithEmailAndPassword(email, password)
         .then(user => {
-          commit('setUser', user);
-          commit('setIsAuthenticated', true);
+          commit("setUser", user);
+          commit("setIsAuthenticated", true);
           router.push("/");
         })
         .catch(() => {
-          commit('setUser', null);
-          commit('setIsAuthenticated', false);
+          commit("setUser", null);
+          commit("setIsAuthenticated", false);
           router.push("/login");
         });
     },
-    userLogout({commit}) {
-      auth.signOut()
+    userLogout({ commit }) {
+      auth
+        .signOut()
         .then(() => {
-          commit('setUser', null);
-          commit('setIsAuthenticated', false);
+          commit("setUser", null);
+          commit("setIsAuthenticated", false);
           router.push("/login");
           console.log("logout successful");
         })
         .catch(error => {
-          commit('setUser', null);
-          commit('setIsAuthenticated', false);
+          commit("setUser", null);
+          commit("setIsAuthenticated", false);
           router.push("/login");
           console.log(error);
         });
@@ -63,8 +66,7 @@ export default new Vuex.Store({
   },
   getters: {
     isAuthenticated(state) {
-      return state.user !== null
-            && state.user !== undefined;
+      return state.user !== null && state.user !== undefined;
     }
   },
   modules: {}

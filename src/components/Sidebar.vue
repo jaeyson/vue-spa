@@ -137,9 +137,9 @@
 export default {
   methods: {
     signOut() {
-      this.$store.dispatch('userLogout');
+      this.$store.dispatch("userLogout");
       // this.$refs.form.reset();
     }
   }
-}
+};
 </script>

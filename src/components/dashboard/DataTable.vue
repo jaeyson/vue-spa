@@ -55,36 +55,38 @@ export default {
       // [year,month,day] = [date.getFullYear(), date.getMonth(), date.getDate()]
       return `${month}/${day}/${year}`;
     },
-    getStatus: code => ({
-      "-1": "Invalid",
-      "0": "Blocked",
-      "1": "Valid",
-    })[code.toString()], //showErrorMessage(error.code)
-    getSystemNote: code => ({
-      "0": "None",
-      "1": "Additional data available",
-      "2": "Country blocked",
-      "3": "Address does not exist",
-      "4": "Domain does not exist",
-      "5": "Blocked by user",
-    })[code.toString()], //showErrorMessage(error.code)
+    getStatus: code =>
+      ({
+        "-1": "Invalid",
+        "0": "Blocked",
+        "1": "Valid"
+      }[code.toString()]), //showErrorMessage(error.code)
+    getSystemNote: code =>
+      ({
+        "0": "None",
+        "1": "Additional data available",
+        "2": "Country blocked",
+        "3": "Address does not exist",
+        "4": "Domain does not exist",
+        "5": "Blocked by user"
+      }[code.toString()]) //showErrorMessage(error.code)
   },
-  data () {
+  data() {
     return {
-      search: '',
+      search: "",
       headers: [
         {
-          text: 'Name',
-          align: 'start',
+          text: "Name",
+          align: "start",
           sortable: true,
-          value: 'name',
+          value: "name"
         },
-        { text: 'Email Address', value: 'email' },
-        { text: 'Status', value: 'status' },
-        { text: 'Form ID', value: 'formID' },
-        { text: 'IP Address', value: 'ipAddress' },
-        { text: 'Optin Date', value: 'optinDate' },
-        { text: 'System Notes', value: 'systemNotes' },
+        { text: "Email Address", value: "email" },
+        { text: "Status", value: "status" },
+        { text: "Form ID", value: "formID" },
+        { text: "IP Address", value: "ipAddress" },
+        { text: "Optin Date", value: "optinDate" },
+        { text: "System Notes", value: "systemNotes" }
       ],
       leads: [
         {
@@ -93,8 +95,8 @@ export default {
           status: this.getStatus(1),
           formID: "VD1-0151378239",
           ipAddress: "192.155.45.13",
-          optinDate: this.getDate('11/28/2019'),
-          systemNotes: this.getSystemNote(0),
+          optinDate: this.getDate("11/28/2019"),
+          systemNotes: this.getSystemNote(0)
         },
         {
           name: "Ashton Cox",
@@ -102,8 +104,8 @@ export default {
           status: this.getStatus(1),
           formID: "CF1-0344137829",
           ipAddress: "192.168.112.48",
-          optinDate: this.getDate('01/12/2020'),
-          systemNotes: this.getSystemNote(1),
+          optinDate: this.getDate("01/12/2020"),
+          systemNotes: this.getSystemNote(1)
         },
         {
           name: "Brielle Williamson",
@@ -111,8 +113,8 @@ export default {
           status: this.getStatus(1),
           formID: "VD1-9871231305",
           ipAddress: "126.24.164.11",
-          optinDate: this.getDate('12/02/2019'),
-          systemNotes: this.getSystemNote(0),
+          optinDate: this.getDate("12/02/2019"),
+          systemNotes: this.getSystemNote(0)
         },
         {
           name: "Cedric Kelly",
@@ -120,8 +122,8 @@ export default {
           status: this.getStatus(0),
           formID: "CF1-0581468155",
           ipAddress: "126.188.112.0",
-          optinDate: this.getDate('03/29/2020'),
-          systemNotes: this.getSystemNote(2),
+          optinDate: this.getDate("03/29/2020"),
+          systemNotes: this.getSystemNote(2)
         },
         {
           name: "Donna Snider",
@@ -129,8 +131,8 @@ export default {
           status: this.getStatus(-1),
           formID: "TD1-0855187132",
           ipAddress: "192.27.55.14",
-          optinDate: this.getDate('01/25/2020'),
-          systemNotes: this.getSystemNote(3),
+          optinDate: this.getDate("01/25/2020"),
+          systemNotes: this.getSystemNote(3)
         },
         {
           name: "Garrett Winters",
@@ -138,8 +140,8 @@ export default {
           status: this.getStatus(-1),
           formID: "TD1-0189712384",
           ipAddress: "192.168.42.11",
-          optinDate: this.getDate('07/03/2019'),
-          systemNotes: this.getSystemNote(0),
+          optinDate: this.getDate("07/03/2019"),
+          systemNotes: this.getSystemNote(0)
         },
         {
           name: "Michael Bruce",
@@ -147,8 +149,8 @@ export default {
           status: this.getStatus(-1),
           formID: "TD1-1500982275",
           ipAddress: "168.29.121.1",
-          optinDate: this.getDate('06/27/2019'),
-          systemNotes: this.getSystemNote(4),
+          optinDate: this.getDate("06/27/2019"),
+          systemNotes: this.getSystemNote(4)
         },
         {
           name: "Shad Decker",
@@ -156,8 +158,8 @@ export default {
           status: this.getStatus(1),
           formID: "VD1-0251793241",
           ipAddress: "126.192.44.12",
-          optinDate: this.getDate('11/13/2019'),
-          systemNotes: this.getSystemNote(5),
+          optinDate: this.getDate("11/13/2019"),
+          systemNotes: this.getSystemNote(5)
         },
         {
           name: "Tiger Nixon",
@@ -165,9 +167,9 @@ export default {
           status: this.getStatus(1),
           formID: "VD1-8941232411",
           ipAddress: "192.168.14.62",
-          optinDate: this.getDate('04/25/2020'),
-          systemNotes: this.getSystemNote(1),
-        },
+          optinDate: this.getDate("04/25/2020"),
+          systemNotes: this.getSystemNote(1)
+        }
         // "0": "None",
         // "1": "Additional data available",
         // "2": "Country blocked",
@@ -177,8 +179,8 @@ export default {
         // "-1": "Invalid",
         // "0": "Blocked",
         // "1": "Valid",
-      ],
-    }
+      ]
+    };
   }
 };
 </script>
